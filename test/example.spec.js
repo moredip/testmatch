@@ -1,11 +1,4 @@
-const assert = require('assert');
-const chai = require('chai');
-
 const M = require('../lib/dsl');
-
-const chaiPlugin = require('../lib/plugins/chai');
-chai.use(chaiPlugin);
-const expect = chai.expect;
 
 describe('testing a JSON API', function () {
   const apiClient = createApiClient();
@@ -21,10 +14,20 @@ describe('testing a JSON API', function () {
       })
     });
 
-    return apiClient.getUser(theUserId)
-    .then(function (user) {
-      expect(user).to.match(expectedResult)
-    });
+    //return apiClient.getUser(theUserId)
+    //.then(function (user) {
+      //expect(user).to.match(expectedResult)
+    //});
+    
+    const result = apiClient.getUser(theUserId);
+    return expect(result).to.eventually.match(M.objectWith({
+      found: true,
+      user: M.objectWith({
+        id: theUserId,
+        firstName: M.any(),
+        lastName: M.any()
+      })
+    }));
   });
 });
 
