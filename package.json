@@ -1,0 +1,7 @@
+{
+  "name": "testmatch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pete Hodgson <git@thepete.net>",
+  "license": "MIT"
+}
