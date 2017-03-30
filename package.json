@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "mocha test",
-    "test:watch": "mocha --watch test"
+    "test:watch": "mocha --watch test",
+    "test:debug": "mocha --watch --debug --inspect test"
   }
 }
