@@ -1,5 +1,6 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
+const sinonChai = require('sinon-chai');
 
 const chaiPlugin = require('../lib/plugins/chai');
 
@@ -7,6 +8,7 @@ const chaiPlugin = require('../lib/plugins/chai');
 const setupMarker = Symbol.for('MOCHA_SETUP_MARKER');
 if( !(setupMarker in chai) ){
   chai.use(chaiPlugin);
+  chai.use(sinonChai);
   chai.use(chaiAsPromised);
   chai[setupMarker] = true;
 }

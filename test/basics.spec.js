@@ -38,6 +38,15 @@ describe('the basics', function () {
     });
   });
 
+  describe('anyInstanceOf', function () {
+    it('matches strings', function () {
+      shouldMatch(
+        M.ofType('string'),
+        "123"
+      );
+    });
+  });
+
   describe('contains', function () {
     specify('single element which matches', function () {
       shouldMatch(
